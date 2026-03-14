@@ -1,10 +1,11 @@
 import {
   LayoutDashboard,
   Users,
-  Droplets,
   FileText,
   Settings,
-  ChevronLeft,
+  Droplets,
+  UserPlus,
+  UsersRound,
 } from 'lucide-react';
 import { NavLink } from '@/components/NavLink';
 import { useLocation } from 'react-router-dom';
@@ -18,19 +19,19 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarHeader,
-  SidebarFooter,
   useSidebar,
 } from '@/components/ui/sidebar';
 
 const mainNav = [
-  { title: 'Dashboard', url: '/', icon: LayoutDashboard },
-  { title: 'Clients', url: '/clients', icon: Users },
-  { title: 'Bottles', url: '/bottles', icon: Droplets },
-  { title: 'Orders', url: '/orders', icon: FileText },
+  { title: 'Bosh sahifa', url: '/', icon: LayoutDashboard },
+  { title: 'Mijozlar', url: '/clients', icon: Users },
+  { title: 'Buyurtmalar', url: '/orders', icon: FileText },
+  { title: 'Lidlar', url: '/leads', icon: UserPlus },
+  { title: 'Hodimlar', url: '/employees', icon: UsersRound },
 ];
 
 const secondaryNav = [
-  { title: 'Settings', url: '/settings', icon: Settings },
+  { title: 'Sozlamalar', url: '/settings', icon: Settings },
 ];
 
 export function AppSidebar() {
@@ -41,16 +42,16 @@ export function AppSidebar() {
     path === '/' ? location.pathname === '/' : location.pathname.startsWith(path);
 
   return (
-    <Sidebar collapsible="icon">
+    <Sidebar collapsible="icon" className="border-r-0">
       <SidebarHeader className="p-4">
         <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center">
-            <Droplets className="h-5 w-5 text-primary-foreground" />
+          <div className="w-9 h-9 rounded-xl bg-sidebar-primary flex items-center justify-center">
+            <Droplets className="h-5 w-5 text-sidebar-primary-foreground" />
           </div>
           {!collapsed && (
             <div>
-              <h2 className="text-base font-bold leading-tight">Suv ERP</h2>
-              <p className="text-[10px] text-muted-foreground leading-tight">Water Delivery CRM</p>
+              <h2 className="text-base font-bold leading-tight text-sidebar-foreground">Suv ERP</h2>
+              <p className="text-[10px] text-sidebar-foreground/60 leading-tight">Suv yetkazib berish</p>
             </div>
           )}
         </div>
@@ -58,7 +59,7 @@ export function AppSidebar() {
 
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Navigation</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-sidebar-foreground/50 text-[10px] uppercase tracking-wider">Asosiy</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {mainNav.map((item) => (
@@ -67,8 +68,8 @@ export function AppSidebar() {
                     <NavLink
                       to={item.url}
                       end={item.url === '/'}
-                      className="hover:bg-accent"
-                      activeClassName="bg-accent text-accent-foreground font-semibold"
+                      className="hover:bg-sidebar-accent text-sidebar-foreground/80"
+                      activeClassName="bg-sidebar-accent text-sidebar-accent-foreground font-semibold"
                     >
                       <item.icon className="mr-2 h-4 w-4" />
                       {!collapsed && <span>{item.title}</span>}
@@ -81,7 +82,7 @@ export function AppSidebar() {
         </SidebarGroup>
 
         <SidebarGroup>
-          <SidebarGroupLabel>System</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-sidebar-foreground/50 text-[10px] uppercase tracking-wider">Tizim</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {secondaryNav.map((item) => (
@@ -89,8 +90,8 @@ export function AppSidebar() {
                   <SidebarMenuButton asChild>
                     <NavLink
                       to={item.url}
-                      className="hover:bg-accent"
-                      activeClassName="bg-accent text-accent-foreground font-semibold"
+                      className="hover:bg-sidebar-accent text-sidebar-foreground/80"
+                      activeClassName="bg-sidebar-accent text-sidebar-accent-foreground font-semibold"
                     >
                       <item.icon className="mr-2 h-4 w-4" />
                       {!collapsed && <span>{item.title}</span>}

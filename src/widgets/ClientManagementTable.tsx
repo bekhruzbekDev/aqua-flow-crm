@@ -3,7 +3,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Eye, MoreHorizontal, Ban } from 'lucide-react';
+import { Eye, Ban } from 'lucide-react';
 import { Client, getBottleBalance } from '@/entities/client/types';
 import { DebtStatusBadge } from '@/entities/client/DebtStatusBadge';
 import { ClientTypeBadge } from '@/entities/client/ClientTypeBadge';
@@ -22,13 +22,13 @@ export function ClientManagementTable({ clients }: ClientManagementTableProps) {
       <Table>
         <TableHeader>
           <TableRow className="bg-muted/40 hover:bg-muted/40">
-            <TableHead className="font-semibold">Client</TableHead>
-            <TableHead className="font-semibold">Type</TableHead>
-            <TableHead className="font-semibold">Region</TableHead>
-            <TableHead className="font-semibold text-center">Bottles Out</TableHead>
-            <TableHead className="font-semibold text-right">Balance</TableHead>
-            <TableHead className="font-semibold text-center">Status</TableHead>
-            <TableHead className="font-semibold text-center w-20">Actions</TableHead>
+            <TableHead className="font-semibold">Mijoz</TableHead>
+            <TableHead className="font-semibold">Turi</TableHead>
+            <TableHead className="font-semibold">Hudud</TableHead>
+            <TableHead className="font-semibold text-center">Idishlar</TableHead>
+            <TableHead className="font-semibold text-right">Balans</TableHead>
+            <TableHead className="font-semibold text-center">Holat</TableHead>
+            <TableHead className="font-semibold text-center w-20">Amallar</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -88,7 +88,7 @@ export function ClientManagementTable({ clients }: ClientManagementTableProps) {
           {clients.length === 0 && (
             <TableRow>
               <TableCell colSpan={7} className="text-center py-12 text-muted-foreground">
-                No clients found matching your filters.
+                Filtrlarga mos mijozlar topilmadi.
               </TableCell>
             </TableRow>
           )}
